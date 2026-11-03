@@ -1,15 +1,33 @@
+#include <cstdint>
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
 
 #include "ble_scan.hpp"
+#include "freertos/idf_additions.h"
+#include "freertos/projdefs.h"
+#include "portmacro.h"
+#include "tpms_types.hpp"
+#include "uart_comm.hpp"
 
 extern "C" void app_main(void)
 {
+	
+	QueueHandle_t dataQueue = xQueueCreate(10, sizeof(TpmsMeasurement));
+		
+		
 	static BleScanner scanner;
-	scanner.begin(nullptr);
+	scanner.begin(dataQueue);
+	
+	
+	
     while (true) {
-        printf("Hello from app_main!\n");
-        sleep(1);
+		
+		TpmsMeasurement message;
+        if(xQueueReceive(dataQueue, &message, portMAX_DELAY) == pdTRUE) {
+			uartSend(message);
+		}
+		
+		
     }
 }
