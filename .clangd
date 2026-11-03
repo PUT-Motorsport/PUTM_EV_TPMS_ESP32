@@ -1,0 +1,4 @@
+CompileFlags:
+  CompilationDatabase: D:\Dokumenty\ESP32_workspace\EV_TPMS_ESP32\build
+  Remove: [-m*, -f*]
+  BuiltinHeaders: QueryDriver

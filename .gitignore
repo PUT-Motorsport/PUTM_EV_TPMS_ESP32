@@ -1,0 +1,21 @@
+# Wyniki kompilacji ESP-IDF
+build/
+
+# Pobrane zależności i komponenty z ESP Component Registry
+managed_components/
+dependencies.lock
+
+# Automatyczna kopia zapasowa konfiguracji ESP-IDF
+sdkconfig.old
+
+# Pliki konfiguracyjne Espressif IDE 
+.settings/
+.project
+.cproject
+
+# Pliki środowiska Visual Studio Code
+.vscode/
+
+# Pliki systemowe Windows
+Thumbs.db
+desktop.ini
