@@ -9,8 +9,8 @@
 #define MAIN_UART_COMM_HPP_
 
 #include "tpms_types.hpp"
-
-void uartSend(TpmsMeasurement message);
+void uartInit();
+void uartSend(const TpmsMeasurement& message);
 
 
 #endif /* MAIN_UART_COMM_HPP_ */

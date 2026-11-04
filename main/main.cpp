@@ -16,12 +16,14 @@ extern "C" void app_main(void)
 	QueueHandle_t dataQueue = xQueueCreate(10, sizeof(TpmsMeasurement));
 		
 		
+	uartInit();
+	
 	static BleScanner scanner;
 	scanner.begin(dataQueue);
 	
 	
-	
-    while (true) {
+    
+	while (true) {
 		
 		TpmsMeasurement message;
         if(xQueueReceive(dataQueue, &message, portMAX_DELAY) == pdTRUE) {
